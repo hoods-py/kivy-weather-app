@@ -6,17 +6,20 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 import requests
-
+from kivy.core.window import Window
 
 class MainApp(App):
     def build(self):
+        Window.clearcolor = (1, 1, 1, 1)
         layout = BoxLayout(orientation='vertical', spacing=10, padding=40)
 
         self.city_input = TextInput(hint_text='Enter city name', multiline=False)
         self.country_input = TextInput(hint_text='Enter country code', multiline=False)
         self.fetch_btn = Button(text='Fetch Weather', on_press=self.get_weather)
 
-        self.weather_label = Label(text='Weather Forecast will be displayed here', font_size=20, halign='center',
+        self.weather_label = Label(text='Weather Forecast will be displayed here',
+                                   color=(0, 1, 0, 1),
+                                   font_size=20, halign='center',
                                    valign='middle')
 
         layout.add_widget(self.city_input)
